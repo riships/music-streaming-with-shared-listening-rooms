@@ -1,6 +1,33 @@
 # Listen Together: Music Streaming Architecture & Design Doc
 
-Oct 13, 2026 · @Rishi
+> **Author:** @Rishi · **Date:** Oct 13, 2026  
+> **Repository Guide:** See [README.md](README.md) for quick-start, local setup, and repository layout.
+
+---
+
+## Table of Contents
+
+1. [Overview and Scale](#1-overview-and-scale)
+2. [Architecture](#2-architecture)
+3. [Audio Delivery](#3-audio-delivery)
+4. [Catalogue and Search](#4-catalogue-and-search)
+5. [Room Sync & Protocol Specification](#5-room-sync--protocol-specification)
+   - [5.1 Clock Synchronization Protocol (Cristian's Algorithm)](#51-clock-synchronization-protocol-cristians-algorithm)
+   - [5.2 Drift Correction Engine](#52-drift-correction-engine)
+   - [5.3 WebSocket Wire Protocol Schemas](#53-websocket-wire-protocol-schemas)
+   - [5.4 Room Sharding & Lease Fencing (Lua Script)](#54-room-sharding--lease-fencing-lua-script)
+6. [Sequence: Host Presses Pause in a Room of 5,000 Listeners](#6-sequence-host-presses-pause-in-a-room-of-5000-listeners)
+7. [Data and Storage](#7-data-and-storage)
+   - [7.1 Storage Matrix](#71-storage-matrix)
+   - [7.2 Database Schemas (Prisma & ClickHouse)](#72-database-schemas)
+8. [Reliability](#8-reliability)
+9. [Observability](#9-observability)
+10. [Technology Choices: Libraries, Frameworks & Ecosystem](#10-technology-choices-libraries-frameworks--ecosystem)
+11. [Key Decisions and Rejected Alternatives](#11-key-decisions-and-rejected-alternatives)
+12. [Failure Scenarios](#12-failure-scenarios)
+13. [What to Build First, and What to Postpone (12-Week Roadmap)](#13-what-to-build-first-and-what-to-postpone)
+
+---
 
 ## 1. Overview and scale
 
